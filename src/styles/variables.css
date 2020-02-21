@@ -1,0 +1,57 @@
+/* purgecss start ignore */
+/* @start color */
+:root {
+    /* light theme color */
+    --background: hsl(0, 0%, 100%);
+    --background-secondary: hsl(0, 0%, 90%);
+    --header: hsl(0, 0%, 85%);
+    --color: hsl(0, 0%, 13%);
+    --color-secondary: hsl(0, 0%, 60%);
+    --border: hsl(0, 0%, 80%);
+
+    --term-ps1: hsl(100, 70%, 30%);
+    --term-path: hsl(200, 70%, 30%);
+
+    --sans-serif: -apple-system, Verdana, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: Inconsolata, Consolas, "Andale Mono WT", "Andale Mono", Menlo, Monaco, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, "YaHei Consolas Hybrid", monospace, "Segoe UI Emoji", "PingFang SC", "Microsoft YaHei";
+}
+
+[data-theme="dark"] {
+  /* dark theme colors */
+  --background: hsl(225, 5%, 20%);
+  --background-secondary: hsl(225, 5%, 25%);
+  --header: hsl(225, 5%, 15%);
+  --color: hsl(225, 5%, 70%);
+  --color-secondary: hsl(225, 5%, 45%);
+  --border: hsl(225, 5%, 30%);
+
+  --term-ps1: hsl(120, 50%, 50%);
+  --term-path: hsl(200, 50%, 50%);
+}
+/* @end color */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: hsl(225, 5%, 20%);
+    --background-secondary: hsl(225, 5%, 25%);
+    --header: hsl(225, 5%, 15%);
+    --color: hsl(225, 5%, 70%);
+    --color-secondary: hsl(225, 5%, 45%);
+    --border: hsl(225, 5%, 30%);
+  }
+
+  img {
+    opacity: .75;
+    transition: opacity .5s ease-in-out;
+  }
+
+  img:hover {
+    opacity: 1;
+  }
+}
+
+/* Custom media */
+@custom-media --phone (max-width: 30em); /* 30rem * 16px = 480px */
+@custom-media --tablet (min-width: 48rem); /* 48rem * 16px = 768px */
+@custom-media --desktop (min-width: 75em); /* 75rem * 16px = 1200px */
+/* purgecss end ignore */

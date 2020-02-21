@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="canonical" href="{{ config.base_url | safe }}">
+
+    <!-- Sets Microsoft mode to Edge -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Sets the right content type and encoding -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=5" >
+
+    <!-- SEO -->
+    {% if page.title %}
+    <title> {{ page.title }} | {{ config.title }} </title>
+    {% else %}
+    <title> {{ config.title }} </title>
+    {% endif %}
+    <meta name="author" content="Edgard Arakaki" />
+    <meta name="description" content="{{ config.description }}" />
+
+    {% if config.generate_rss %}
+    <!-- Link to the automatic rss generation -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}">
+    {% endif %}
+
+  </head>
+
+  <body>
+    <header class="header">
+      <div>
+        <span class="term">
+          <span class="ps1"><a href="{{config.base_url}}" aria-label="Home page">edgard</a></span>
+          <span class="separator">:</span>
+          <span class="path">
+            <a href="{{config.base_url}}" aria-label="Home path">~/</a>404
+          </span>
+          <span class="text"> $</span>
+          <span class="cursor"></span>
+        </span>
+        <nav class="menu">
+          <ul>
+            <li><a href='{{get_url(path="@/about.md")}}'>About</a></li>
+            <li><a href='{{get_url(path="@/writing/_index.md")}}'>Writing</a></li>
+            <li><a href='{{get_url(path="@/resume.md")}}'>Resume</a></li>
+          </ul>
+
+          <span class="dark-mode">
+            <label for="dark-mode" role="button" aria-label="Toggle Dark Mode" tabindex="0">
+              <i class="icon loader" role="img" alt="Toggle Dark Mode"></i>
+            </label>
+            <input name="dark-mode" id="dark-mode" aria-hidden="true" type="checkbox" />
+          </span>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section">
+      <main role="main">
+        <div>
+          <h1>404</h1>
+          <p>Page Not Found</p>
+        </div>
+      </main>
+    </section>
+
+    <footer class="footer" >
+      <div>
+        <p>© 2020 <a href="{{ config.base_url }}">Edgard Arakaki</a></p>
+        <p>Powered by <a href="https://getzola.com">Zola</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

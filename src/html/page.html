@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block breadcrumbs %}
+<a href="{{config.base_url}}" >~</a>
+{% for parent in page.ancestors %}
+{% set s = get_section(path=parent, include_pages=false) %}
+<a href="{{s.permalink}}">{{s.path}}</a>
+{% endfor %}
+<a href="{{page.permalink}}" >{{page.slug}}</a>
+{% endblock breadcrumbs %}
+
+{% block content %}
+
+<article class="{{page.extra.classes | default(value='article') }}" id="{{page.extra.id | default(value=page.slug)}}">
+  <h1 class="title" id="{{page.title | slugify}}-title"><a href="{{page.permalink}}">{{ page.title }}</a></h1>
+
+  {{ page.content | safe }}
+</article>
+
+{% endblock content %}

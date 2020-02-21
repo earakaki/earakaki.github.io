@@ -1,0 +1,121 @@
+/* Header */
+.header {
+  background: var(--header);
+  display: flex;
+  padding: 1rem;
+
+  & a {
+    text-decoration: none; /* Remove link decorator mainly */
+  }
+
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 48rem;
+
+    & > * {
+      flex: 1 1 23rem;
+      line-height: 2.5rem;
+      align-content: center;
+    }
+  }
+}
+
+/* Menu */
+.menu {
+  font-family: var(--mono);
+  display: flex;
+  justify-content: space-between;
+  @media (--tablet) {
+    justify-content: flex-end;
+  }
+
+  & ul {
+    display: flex;
+    margin: 0;
+    list-style: none;
+
+    & > li {
+      margin-right: 1rem;
+    }
+  }
+
+  & .dark-mode {
+    display: flex;
+    & .icon {
+      display: inline-block;
+      width: 1rem;
+      vertical-align: middle;
+    }
+    & input[type=checkbox] {
+      visibility: hidden;
+      display: none;
+    }
+  }
+
+  & a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/*
+@styleguide
+
+@title Terminal
+
+Use the term class on an element.
+
+<div class="term">
+  <span class="ps1">user</span>
+  <span class="separator">: </span>
+  <span class="path">~ </span>
+  <span class="text">$</span>
+  <span class="cursor"></span>
+</div>
+*/
+.term {
+  display: flex;
+  text-decoration: none;
+  font-weight: bold;
+  font-display: auto;
+  font-family: var(--mono);
+  letter-spacing: -0.05rem;
+
+  & > * {
+    display: flex;
+  }
+
+  & > .ps1 {
+    color: var(--term-ps1);
+  }
+
+  & > .path {
+    color: var(--term-path);
+  }
+
+  & > .cursor { /* Assumes that line height is 2.5rem */
+    width: 0.5rem;
+    height: 1rem;
+    margin: 0.75em 0;
+    background: var(--term-ps1);
+    animation: cursor 1s infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    & > .cursor {
+      animation: none;
+    }
+  }
+}
+
+@keyframes cursor {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
