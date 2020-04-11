@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://earakaki.github.io/sitemap.xml
