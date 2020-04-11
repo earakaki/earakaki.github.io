@@ -85,7 +85,7 @@ Use the term class on an element.
   font-weight: bold;
   font-display: auto;
   font-family: var(--mono);
-  letter-spacing: -0.05rem;
+  /*letter-spacing: -0.05rem;*/
 
   & > * {
     display: flex;

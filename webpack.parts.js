@@ -2,7 +2,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-exports.clean = path => ({
+exports.clean = () => ({
   plugins: [new CleanWebpackPlugin()],
 });
 
@@ -25,7 +25,8 @@ exports.devServer = ({ host, port } = {}) => ({
 exports.extractCSS = ({ include, exclude, use = [] }) => {
   // Output extracted CSS to a file
   const plugin = new MiniCssExtractPlugin({
-    filename: "[name].css",
+    filename: "[name].[hash].css",
+    ignoreOrder: false,
   });
 
   return {
@@ -35,7 +36,6 @@ exports.extractCSS = ({ include, exclude, use = [] }) => {
           test: /\.css$/,
           include,
           exclude,
-
           use: [
             MiniCssExtractPlugin.loader,
           ].concat(use),
@@ -64,19 +64,20 @@ exports.loadCSS = ({ include, exclude, use = [] }) => ({
   },
 });
 
-exports.postcss = ({ minify = false, styleguide = false } = {}) => ({
+exports.postcss = ({ minify = false } = {}) => ({
   loader: "postcss-loader",
   options: {
     sourceMap: true,
     plugins: (loader) => {
       var list = [
-        require('postcss-import')(), // Needed for custom-media queries
-        require("postcss-normalize")(),
+        //require('postcss-import')(), // Needed for custom-media queries
+        require("postcss-import")(
+          require("postcss-normalize")().postcssImport(),
+        ),
         require("postcss-preset-env")({ stage: 1 }),
       ];
       list = minify ? list.concat(require("@fullhuman/postcss-purgecss")({ content: ['./src/**/*.html']})) : list;
       list = minify ? list.concat(require('cssnano')({ preset: "default" })) : list;
-      list = styleguide ? list.concat(require('postcss-style-guide')()) : list;
       return list;
     },
   },

@@ -1,5 +1,4 @@
 /* purgecss start ignore */
-/* @start color */
 :root {
     /* light theme color */
     --background: hsl(0, 0%, 100%);
@@ -21,23 +20,25 @@
   --background: hsl(225, 5%, 20%);
   --background-secondary: hsl(225, 5%, 25%);
   --header: hsl(225, 5%, 15%);
-  --color: hsl(225, 5%, 70%);
+  --color: hsl(225, 5%, 85%);
   --color-secondary: hsl(225, 5%, 45%);
   --border: hsl(225, 5%, 30%);
 
-  --term-ps1: hsl(120, 50%, 50%);
+  --term-ps1: hsl(100, 50%, 50%);
   --term-path: hsl(200, 50%, 50%);
 }
-/* @end color */
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: hsl(225, 5%, 20%);
     --background-secondary: hsl(225, 5%, 25%);
     --header: hsl(225, 5%, 15%);
-    --color: hsl(225, 5%, 70%);
+    --color: hsl(225, 5%, 85%);
     --color-secondary: hsl(225, 5%, 45%);
     --border: hsl(225, 5%, 30%);
+
+    --term-ps1: hsl(100, 50%, 50%);
+    --term-path: hsl(200, 50%, 50%);
   }
 
   img {

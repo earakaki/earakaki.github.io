@@ -9,7 +9,7 @@ html {
 /* > 768px */
 @media (--desktop) {
   html {
-    font-size:21px
+    font-size:21px;
   }
 }
 
